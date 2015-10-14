@@ -21,4 +21,11 @@
         android:text="查看列表"
         android:onClick="BtnGoToList_Click"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查看图片"
+        android:layout_marginLeft="200dp"
+        android:onClick="btnGoToHttpImageView_Click"/>
+
 </RelativeLayout>

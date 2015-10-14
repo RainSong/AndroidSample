@@ -1,24 +1,42 @@
 package com.androidsample.ygj.androidsample;
 
-import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class HttpImageViewActivity extends AppCompatActivity {
+    private String strUrl = "http://www.xn--g6r18kq05d.com/heima_member/uploadproduct/2015-1/20150130163517.jpg";
+    private TextView txtView;
+    private ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_http_image_view);
+        txtView = (TextView) findViewById(R.id.urlText);
+        imageView = (ImageView) findViewById(R.id.httpImgView);
+
+        if (txtView != null) {
+            txtView.setText(strUrl);
+        }
+        try {
+            Bitmap bitmap = HttpUtil.GetHttpBitmap(strUrl);
+            imageView.setImageBitmap(bitmap);
+        } catch (Exception ex) {
+            Log.i("info","load image faild");
+            Log.e("error","load image faild",ex);
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_http_image_view, menu);
         return true;
     }
 
@@ -35,24 +53,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void BtnGoLogin_Click(View view) {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
-    }
-
-    public void BtnGoToList_Click(View view) {
-        Intent intent = new Intent(MainActivity.this, ListActivity.class);
-        startActivity(intent);
-    }
-
-    public void btnGoToHttpImageView_Click(View view){
-        GoTo(HttpImageViewActivity.class);
-    }
-
-    private  void GoTo(Class<?> cls){
-        Intent intent = new Intent(MainActivity.this, cls);
-        startActivity(intent);
     }
 }
