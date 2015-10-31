@@ -89,6 +89,7 @@ public class HttpUtil {
         InputStream inputStream = null;
 
         imgUrl = new URL(url);
+        try{
         HttpURLConnection httpURLConnection = (HttpURLConnection) imgUrl.openConnection();
         httpURLConnection.setConnectTimeout(2000);
         httpURLConnection.setDoInput(true);
@@ -100,6 +101,9 @@ public class HttpUtil {
 
         bitmap = BitmapFactory.decodeStream(inputStream);
         inputStream.close();
+        httpURLConnection.disconnect();
+        }
+        catch (Exception ex){}
 
         return bitmap;
     }
