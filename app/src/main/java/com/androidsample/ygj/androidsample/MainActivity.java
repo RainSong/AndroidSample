@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         GoTo(HttpImageViewActivity.class);
     }
 
+    public void btnGoToGPS_Click(View view){
+        GoTo(LocationActivity.class);
+    }
+
     private  void GoTo(Class<?> cls){
         Intent intent = new Intent(MainActivity.this, cls);
         startActivity(intent);

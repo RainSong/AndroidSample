@@ -2,12 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.androidsample.ygj.androidsample" >
 
+    <!-- 链接网络的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- GPS定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -29,7 +35,14 @@
             android:name=".HttpImageViewActivity"
             android:label="@string/title_activity_http_image_view" >
         </activity>
-
+        <activity
+            android:name=".LocationActivity"
+            android:label="@string/title_activity_location" >
+        </activity>
+        <activity
+            android:name=".SqliteActivity"
+            android:label="@string/title_activity_sqlite" >
+        </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

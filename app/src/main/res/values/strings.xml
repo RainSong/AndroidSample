@@ -10,4 +10,6 @@
     <string name="edittext_userpassword_hint">请输入密码</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="title_activity_http_image_view">HttpImageViewActivity</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="title_activity_sqlite">SqliteActivity</string>
 </resources>

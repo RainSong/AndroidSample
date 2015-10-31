@@ -1,5 +1,6 @@
 package com.androidsample.ygj.androidsample;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -27,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText txtUserPassword;
 
     private boolean blPasswordShow = false;
-
     private TextWatcher txtPasswordWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
