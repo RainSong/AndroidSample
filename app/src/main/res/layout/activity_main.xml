@@ -36,6 +36,7 @@
         android:onClick="btnGoToGPS_Click"
         android:text="GPS位置"/>
 
+<<<<<<< HEAD
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,4 +45,6 @@
         android:text="商品列表"
         android:onClick="BtnGoToProductList_Click"/>
 
+=======
+>>>>>>> 786b723b40bb5fb7e5715f0160b59404221f31d8
 </RelativeLayout>
