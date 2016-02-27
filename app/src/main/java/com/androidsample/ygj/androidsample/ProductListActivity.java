@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.androidsample.ygj.androidsample.models.Product;
+import com.tencent.bugly.crashreport.BuglyLog;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,7 +30,7 @@ public class ProductListActivity extends AppCompatActivity {
     private ListView listView;
     private ProgressBar progressBar;
 
-    private final int pageSize = 10;
+    private final int pageSize = 5;
     private final String dataUrl = "http://mate.xn--g6r18kq05d.com/mobile/searchresult.aspx?sid=1";
     private Map<String, Object> requestParams;
 
@@ -58,6 +59,7 @@ public class ProductListActivity extends AppCompatActivity {
 
     /**
      * 获取JSON数据
+     *
      * @return
      */
     private String getJson() {
@@ -72,6 +74,7 @@ public class ProductListActivity extends AppCompatActivity {
 
     /**
      * 将JSON数据解析为List
+     *
      * @param json
      * @return
      */
@@ -106,21 +109,25 @@ public class ProductListActivity extends AppCompatActivity {
 
     /**
      * 给ListView绑定数据
+     *
      * @param listData
      */
     private void bindListData(List<Product> listData) {
         ProductListAdapter productListAdapter = new ProductListAdapter(this, listData);
-        listView.setAdapter(productListAdapter);
+        try {
+            listView.setAdapter(productListAdapter);
+        } catch (Exception ex) {
+            BuglyLog.e("ERROR", "load product list faild.", ex);
+        }
     }
 
     /**
      * 跳转至商品详情Activity
+     *
      * @param proeuctId 商品ID
      */
-    private void gotoProductActivity(int proeuctId){
-        Intent intent = new Intent(ProductListActivity.this, ProductActivity.class);
+    private void gotoProductActivity(int proeuctId) {
 
-        startActivity(intent);
     }
 
     /**
