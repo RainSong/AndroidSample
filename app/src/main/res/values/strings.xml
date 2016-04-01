@@ -12,4 +12,6 @@
     <string name="title_activity_http_image_view">HttpImageViewActivity</string>
     <string name="title_activity_location">LocationActivity</string>
     <string name="title_activity_sqlite">SqliteActivity</string>
+    <string name="title_activity_product_list">ProductListActivity</string>
+    <string name="title_activity_product">ProductActivity</string>
 </resources>
